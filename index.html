@@ -3,21 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego del Dinosaurio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Juego del Cubo</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        
+        canvas {
+            margin-top: 20px;
+            border: 2px solid #333;
+        }
+
+        .controles {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        input {
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+    <!-- Incluir p5.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
 <body>
-    <div class="contenedor">
-        <div id="juego">
-            <div id="dinosaurio"></div>
-            <div id="cactus"></div>
-        </div>
-        <div class="puntuacion">
-            <span>Puntuación: </span>
-            <span id="puntos">0</span>
-        </div>
-        <button id="reiniciar" class="oculto">Reiniciar Juego</button>
+    <div class="controles">
+        <h2>Controles:</h2>
+        <p>W - Saltar | A - Izquierda | S - Agacharse | D - Derecha</p>
     </div>
-    <script src="script.js"></script>
+    <!-- Nuestro script del juego -->
+    <script src="main.js"></script>
 </body>
 </html>

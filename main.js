@@ -16,9 +16,16 @@ const GRAVEDAD = 0.5;
 const FUERZA_SALTO = -12;
 const VELOCIDAD_MOVIMIENTO = 5;
 
+// Función de precarga para la imagen
+function preload() {
+    // Usar una imagen de Mario Bros (reemplaza esta URL con una válida)
+    fondoImagen = loadImage('https://raw.githubusercontent.com/mario-background-example/mario-bg.png');
+}
+
 // Función de inicio
 function setup() {
-    createCanvas(800, 400);
+    let canvas = createCanvas(800, 400);
+    canvas.parent(document.body);
     
     // Crear formulario para personalización
     let colorInput = createInput('', 'color');
@@ -29,9 +36,6 @@ function setup() {
     nombreInput.position(20, 50);
     nombreInput.attribute('placeholder', 'Nombre del cubo');
     nombreInput.input(() => cubo.nombre = nombreInput.value());
-    
-    // Cargar imagen de fondo de Mario Bros
-    fondoImagen = loadImage('https://ejemplo.com/fondo-mario.png'); // Reemplazar con URL real
 }
 
 // Bucle principal del juego
@@ -41,6 +45,9 @@ function draw() {
         image(fondoImagen, 0, 0, width, height);
     } else {
         background('#87CEEB'); // Color de cielo si no carga la imagen
+        // Dibujar suelo
+        fill('#5c4033');
+        rect(0, height - 40, width, 40);
     }
     
     // Aplicar gravedad
@@ -48,8 +55,8 @@ function draw() {
     cubo.y += cubo.velocidadY;
     
     // Límite del suelo
-    if (cubo.y > height - cubo.alto) {
-        cubo.y = height - cubo.alto;
+    if (cubo.y > height - cubo.alto - 40) { // Ajustado para el suelo
+        cubo.y = height - cubo.alto - 40;
         cubo.velocidadY = 0;
         cubo.saltando = false;
     }
