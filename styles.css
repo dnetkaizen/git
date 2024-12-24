@@ -5,63 +5,84 @@
 }
 
 body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
 }
 
-.contenedor {
+.game-container {
+    width: 800px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.menu-inicial {
     text-align: center;
+    color: white;
+    padding: 20px;
 }
 
-#juego {
-    width: 600px;
-    height: 200px;
-    border: 2px solid #333;
-    position: relative;
-    overflow: hidden;
-    background-color: white;
+.menu-inicial h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-#dinosaurio {
-    width: 50px;
-    height: 50px;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMUSURBVGiB7ZhNaBNBGIbfmd1NE2n9qYhFRFBBEUUUBEVUPAh6Ej0IghdFehA8ehC8efDgwYNe/DkJevGiICiCiCAIoqCI4k8tIlRra22j2SSbbHZmPGRNm+xuZpNs0lbYBw6b7Hz7zfPOfDOzs4QxhvUMvtYBrDYagLVGa8mxEjKR6QGhO0HpQQDtABAggCsF4BUBvFBZxj3pqycAQEIhwXvOdoHg3oYGnNsSxOawAhkRyEgGxkwdHz6XcO9jGr7UND6bPDYVDcwwwJQMPJZZxqWPqfR9AIi1teDMpgCOtCsIyQQAYBgM4wUTL8ZLeD6Wx+h0GUc7VZztDmFHi4y/eQNDYzmMpHXsCCs40RXEVlWCXwIkQiARgqLO8Gw0j6FYHm/+6OhSJfR3qNjXKkMhBOO6iYcjWbz+XQQFsK9VxuGOAPwSQV5neD6Wx9N4AZ8zBna1KOjvULGzWQYFYDKGr1kDQ7Ec3k4U4ZcIDrX7caIriI1BCgL88VydEGLVCgghzKuAYRhgjLlqGGOglK6NgFsBSZJACKkSEEKg67rnGlxZLwIAoKoqKKUwTdOxwDAMSJK0NgIA0NzcDM45TNN0FDAMY00FwuEwOOeOAoZhgHO+dgIA0NLSAkIIdF13FPA6A54FRkZGMDg4iGg0img0ikgkgkgkgnA4jFAohGAwCL/fD0VRoCgKZFmGLMvw+XwghICQasUKgYqAaZowDAOmaULXdei6jnK5jHK5jFKphGKxiEKhgHw+j1wuh2w2i0wmg3Q6jVQqhWQyiUQigfHxcSQSCRiG4WlSuBIYHh7G+fPnEYvFEIvFMDY2hqmpKRQKhVUdpizLUFUVwWAQqqoiEAjA7/dDURTIsoxAIIBwOIxNmzahq6sL3d3d6OnpQW9vL/r6+tDe3u48RK8XGhgYYBcvXmQPHjxgT548YS9fvmSxWIzFYjEWj8fZ5OQkS6VSLJPJsHw+z4rFItN1nRmGwTjnjHPOTNNkjLHKxhhjnHNWqVTYzMwMm5qaYhMTE+zbt2/s69ev7PPnz+zjx4/s3bt37M2bN+zVq1fs+fPn7PHjx+zOnTvs2rVr7PLly+zChQvs7Nmz/xz/N0Yj9qXYAAAAAElFTkSuQmCC');
-    background-size: contain;
-    position: absolute;
-    bottom: 0;
+.configuracion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
-#cactus {
-    width: 20px;
-    height: 40px;
-    background-color: #333;
-    position: absolute;
-    bottom: 0;
-    right: 0;
+.configuracion input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
 }
 
-.puntuacion {
-    font-family: 'Arial', sans-serif;
-    font-size: 24px;
-    margin: 20px 0;
-}
-
-#reiniciar {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #4CAF50;
+.configuracion button {
+    padding: 12px 24px;
+    background: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
+    font-size: 18px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background 0.3s;
 }
 
-#reiniciar:hover {
-    background-color: #45a049;
+.configuracion button:hover {
+    background: #45a049;
+}
+
+.controles {
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+}
+
+.teclas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+canvas {
+    border: 3px solid #fff;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: block;
 }
 
 .oculto {
